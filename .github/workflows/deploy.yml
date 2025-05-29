@@ -5,10 +5,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-     env:
-      ECR_REPO: ${{ vars.ECR_REPO }}
-      ECS_CLUSTER: ${{ vars.ECS_CLUSTER }}
-      ECS_SERVICE: ${{ vars.ECS_SERVICE }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -24,6 +20,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
       - name: Build and Push Docker image to ECR
         run: |
+          echo "ECR_REPO değeri: ${{ vars.ECR_REPO }}"
           docker buildx build \
             --platform linux/amd64 \
             -t ${{ vars.ECR_REPO }}:stable \
