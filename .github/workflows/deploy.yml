@@ -5,6 +5,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+     env:
+      ECR_REPO: ${{ vars.ECR_REPO }}
+      ECS_CLUSTER: ${{ vars.ECS_CLUSTER }}
+      ECS_SERVICE: ${{ vars.ECS_SERVICE }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -22,7 +26,7 @@ jobs:
         run: |
           docker buildx build \
             --platform linux/amd64 \
-            -t ${{ secrets.ECR_REPO }}:stable \
+            -t ${{ vars.ECR_REPO }}:stable \
             --push .
       - name: Force ECS service to redeploy
         run: |
