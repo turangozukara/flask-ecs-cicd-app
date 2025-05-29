@@ -20,7 +20,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
       - name: Build and Push Docker image to ECR
         run: |
-          echo "ECR_REPO değeri: ${{ vars.ECR_REPO }}"
+          echo "ECR_REPO değerii: ${{ vars.ECR_REPO }}"
           docker buildx build \
             --platform linux/amd64 \
             -t ${{ vars.ECR_REPO }}:stable \
