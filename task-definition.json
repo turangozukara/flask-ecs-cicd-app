@@ -1,7 +1,7 @@
 {
     "family": "flask-ecs-task",
     "networkMode": "awsvpc",
-    "executionRoleArn": "arn:aws:iam::897722678563:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:ecs:us-east-1:897722678563:task-definition/flask-ecs-task:3",
     "containerDefinitions": [
       {
         "name": "flask-container",
