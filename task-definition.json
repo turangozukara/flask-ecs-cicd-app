@@ -4,7 +4,7 @@
     "executionRoleArn": "arn:aws:iam::897722678563:role/ecsTaskExecutionRole",
     "containerDefinitions": [
       {
-        "name": "flask",
+        "name": "flask-container",
         "image": "IMAGE_URI",
         "portMappings": [
           {
