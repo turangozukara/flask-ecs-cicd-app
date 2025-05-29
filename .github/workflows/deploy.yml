@@ -27,7 +27,4 @@ jobs:
             --push .
       - name: Force ECS service to redeploy
         run: |
-          aws ecs update-service \
-            --cluster ${{ vars.ECS_CLUSTER }} \
-            --service ${{ vars.ECS_SERVICE }} \
-            --force-new-deployment
+          aws ecs update-service --cluster flask-ecs-cluster --service flask-ecs-task-service --force-new-deployment
